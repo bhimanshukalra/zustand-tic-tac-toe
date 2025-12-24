@@ -4,10 +4,10 @@ import { Board } from "./comonents/Board";
 
 function App() {
   return (
-    <>
+    <div className="app-container">
       <GameStatus />
       <Board />
-    </>
+    </div>
   );
 }
 

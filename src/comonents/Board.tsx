@@ -15,6 +15,7 @@ export const Board = () => {
           value={value}
           onClick={() => makeMove(index)}
           disabled={winner !== null}
+          isWinning={!!(winner && winner.line.includes(index))}
         />
       ))}
     </div>
