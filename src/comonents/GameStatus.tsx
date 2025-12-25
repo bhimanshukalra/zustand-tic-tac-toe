@@ -9,13 +9,20 @@ export const GameStatus = () => {
 
   const winner = getWinner(squares);
 
-  const label = winner
-    ? `Winner: ${winner.player}`
-    : `Next player: ${isXTurn ? "X" : "O"}`;
+  const getLabel = () => {
+    const isEverySqareTaken = squares.every((val) => val !== null);
+    if (winner) {
+      return `Winner: ${winner.player}`;
+    } else if (isEverySqareTaken) {
+      return "Draw";
+    } else {
+      return `Next player: ${isXTurn ? "X" : "O"}`;
+    }
+  };
 
   return (
     <div>
-      <p>{label}</p>
+      <p>{getLabel()}</p>
       <button onClick={resetGame}>Reset</button>
       <button onClick={undoMove} className="undo-button">
         Undo
